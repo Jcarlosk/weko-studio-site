@@ -1,31 +1,45 @@
-// Smooth scrolling para links internos
+// --- SMOOTH SCROLLING PARA LINKS INTERNOS ---
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
-    e.preventDefault()
-    const target = document.querySelector(this.getAttribute("href"))
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute("href"));
     if (target) {
       target.scrollIntoView({
         behavior: "smooth",
         block: "start",
-      })
+      });
     }
-  })
-})
+  });
+});
 
-// Scroll to top functionality
+// --- BOTÃO DE VOLTAR AO TOPO ---
 document.querySelector(".scroll-top").addEventListener("click", () => {
   window.scrollTo({
     top: 0,
     behavior: "smooth",
-  })
-})
+  });
+});
 
-// Language selector functionality
-const languageBtn = document.getElementById("languageBtn")
-const languageDropdown = document.getElementById("languageDropdown")
-let currentLanguage = "pt"
+// --- LÓGICA DO MENU MOBILE ---
+const menuToggle = document.querySelector(".menu-toggle");
+const navMenu = document.querySelector(".nav-menu");
 
-// Translations object
+// Adiciona ou remove a classe 'menu-open' do body
+menuToggle.addEventListener("click", () => {
+  document.body.classList.toggle("menu-open");
+});
+
+// Fecha o menu ao clicar em qualquer um dos links
+document.querySelectorAll('.nav-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+        document.body.classList.remove('menu-open');
+    });
+});
+// --- SELETOR DE IDIOMA ---
+const languageBtn = document.getElementById("languageBtn");
+const languageDropdown = document.getElementById("languageDropdown");
+let currentLanguage = "pt";
+
 const translations = {
   pt: {
     about: "SOBRE",
@@ -43,7 +57,7 @@ const translations = {
     process6: "Apresentação",
     process7: "Finalização",
     processDesc1:
-      "Fase inicial do projeto onde alinhamos todas as expectativas para construção da Identidade Visual. Nesta etapa, todos os desafios e objetivos do projeto são bem estabelecidos para buscar o melhor possível result for the brand.",
+      "Fase inicial do projeto onde alinhamos todas as expectativas para construção da Identidade Visual. Nesta etapa, todos os desafios e objetivos do projeto são bem estabelecidos para buscar o melhor resultado possível para a marca.",
     processDesc2:
       "Desenvolvimento da estratégia criativa e definição dos caminhos que serão seguidos durante todo o projeto. Criamos um roadmap detalhado com prazos e entregas específicas.",
     processDesc3:
@@ -131,150 +145,111 @@ const translations = {
   },
 }
 
-// Toggle dropdown
 languageBtn.addEventListener("click", (e) => {
-  e.stopPropagation()
-  languageBtn.classList.toggle("active")
-  languageDropdown.classList.toggle("show")
-})
+  e.stopPropagation();
+  languageBtn.classList.toggle("active");
+  languageDropdown.classList.toggle("show");
+});
 
-// Close dropdown when clicking outside
 document.addEventListener("click", () => {
-  languageBtn.classList.remove("active")
-  languageDropdown.classList.remove("show")
-})
+  languageBtn.classList.remove("active");
+  languageDropdown.classList.remove("show");
+});
 
-// Language selection
 languageDropdown.addEventListener("click", (e) => {
   if (e.target.tagName === "A") {
-    e.preventDefault()
-    const selectedLang = e.target.getAttribute("data-lang")
+    e.preventDefault();
+    const selectedLang = e.target.getAttribute("data-lang");
 
     if (selectedLang !== currentLanguage) {
-      // Update active state
-      languageDropdown.querySelectorAll("a").forEach((link) => link.classList.remove("active"))
-      e.target.classList.add("active")
-
-      // Change language
-      changeLanguage(selectedLang)
-      currentLanguage = selectedLang
+      languageDropdown.querySelectorAll("a").forEach((link) => link.classList.remove("active"));
+      e.target.classList.add("active");
+      changeLanguage(selectedLang);
+      currentLanguage = selectedLang;
     }
-
-    // Close dropdown
-    languageBtn.classList.remove("active")
-    languageDropdown.classList.remove("show")
+    languageBtn.classList.remove("active");
+    languageDropdown.classList.remove("show");
   }
-})
+});
 
-// Change language function
 function changeLanguage(lang) {
-  const t = translations[lang]
-
-  // Update navigation
-  document.querySelector('a[href="#sobre"]').textContent = t.about
-  document.querySelector('a[href="#portfolio"]').textContent = t.portfolio
-  document.querySelector('a[href="#contato"]').textContent = t.contact
-
-  // Update hero section
-  document.querySelector(".hero-title").innerHTML = t.heroTitle
-  document.querySelectorAll(".cta-button").forEach((btn) => (btn.textContent = t.ctaButton))
-
-  // Update portfolio section
-  document.querySelector(".portfolio .section-title").textContent = t.portfolioTitle
-
-  // Update process section
-  document.querySelector(".process .section-title").textContent = t.processTitle
-  const processItems = document.querySelectorAll(".process-name")
-  const processDescriptions = document.querySelectorAll(".process-description")
-
-  processItems[0].textContent = t.process1
-  processItems[1].textContent = t.process2
-  processItems[2].textContent = t.process3
-  processItems[3].textContent = t.process4
-  processItems[4].textContent = t.process5
-  processItems[5].textContent = t.process6
-  processItems[6].textContent = t.process7
-
-  processDescriptions[0].textContent = t.processDesc1
-  processDescriptions[1].textContent = t.processDesc2
-  processDescriptions[2].textContent = t.processDesc3
-  processDescriptions[3].textContent = t.processDesc4
-  processDescriptions[4].textContent = t.processDesc5
-  processDescriptions[5].textContent = t.processDesc6
-  processDescriptions[6].textContent = t.processDesc7
-
-  // Update contact section
-  document.querySelector(".contact-title").innerHTML = t.contactTitle
-  document.querySelector(".contact-description").innerHTML = t.contactDescription
-  document.querySelector(".contact-email").textContent = t.contactEmail
-
-  // Update HTML lang attribute
-  document.documentElement.lang = lang === "pt" ? "pt-BR" : lang === "en" ? "en-US" : "es-ES"
+  const t = translations[lang];
+  document.querySelector('a[href="#sobre"]').textContent = t.about;
+  document.querySelector('a[href="#portfolio"]').textContent = t.portfolio;
+  document.querySelector('a[href="#contato"]').textContent = t.contact;
+  document.querySelector(".hero-title").innerHTML = t.heroTitle;
+  document.querySelectorAll(".cta-button").forEach((btn) => (btn.textContent = t.ctaButton));
+  document.querySelector(".portfolio .section-title").textContent = t.portfolioTitle;
+  document.querySelector(".process .section-title").textContent = t.processTitle;
+  const processItems = document.querySelectorAll(".process-name");
+  const processDescriptions = document.querySelectorAll(".process-description");
+  processItems[0].textContent = t.process1;
+  processItems[1].textContent = t.process2;
+  processItems[2].textContent = t.process3;
+  processItems[3].textContent = t.process4;
+  processItems[4].textContent = t.process5;
+  processItems[5].textContent = t.process6;
+  processItems[6].textContent = t.process7;
+  processDescriptions[0].textContent = t.processDesc1;
+  processDescriptions[1].textContent = t.processDesc2;
+  processDescriptions[2].textContent = t.processDesc3;
+  processDescriptions[3].textContent = t.processDesc4;
+  processDescriptions[4].textContent = t.processDesc5;
+  processDescriptions[5].textContent = t.processDesc6;
+  processDescriptions[6].textContent = t.processDesc7;
+  document.querySelector(".contact-title").innerHTML = t.contactTitle;
+  document.querySelector(".contact-description").innerHTML = t.contactDescription;
+  document.querySelector(".contact-email").textContent = t.contactEmail;
+  document.documentElement.lang = lang === "pt" ? "pt-BR" : lang === "en" ? "en-US" : "es-ES";
 }
 
-// Initialize with Portuguese as active
-document.querySelector('a[data-lang="pt"]').classList.add("active")
+document.querySelector('a[data-lang="pt"]').classList.add("active");
 
-// Mobile menu toggle (se necessário expandir)
-document.querySelector(".menu-toggle").addEventListener("click", () => {
-  // Implementar menu mobile se necessário
-  console.log("Menu toggle clicked")
-})
 
-// Animações on scroll
+// --- OUTRAS ANIMAÇÕES E EFEITOS ---
 const observerOptions = {
   threshold: 0.1,
   rootMargin: "0px 0px -50px 0px",
-}
+};
 
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
-      entry.target.style.opacity = "1"
-      entry.target.style.transform = "translateY(0)"
+      entry.target.style.opacity = "1";
+      entry.target.style.transform = "translateY(0)";
     }
-  })
-}, observerOptions)
+  });
+}, observerOptions);
 
-// Aplicar animações aos elementos
 document.querySelectorAll(".portfolio-item, .process-item").forEach((el) => {
-  el.style.opacity = "0"
-  el.style.transform = "translateY(30px)"
-  el.style.transition = "opacity 0.6s ease, transform 0.6s ease"
-  observer.observe(el)
-})
+  el.style.opacity = "0";
+  el.style.transform = "translateY(30px)";
+  el.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+  observer.observe(el);
+});
 
-// Hover effects para portfolio items
 document.querySelectorAll(".portfolio-item").forEach((item) => {
   item.addEventListener("mouseenter", function () {
-    this.style.transform = "scale(1.02)"
-  })
-
+    this.style.transform = "scale(1.02)";
+  });
   item.addEventListener("mouseleave", function () {
-    this.style.transform = "scale(1)"
-  })
-})
+    this.style.transform = "scale(1)";
+  });
+});
 
-// Process item expand/collapse functionality
 document.querySelectorAll(".process-item").forEach((item) => {
   item.addEventListener("click", function () {
-    // Fechar outros itens expandidos
     document.querySelectorAll(".process-item").forEach((otherItem) => {
       if (otherItem !== this) {
-        otherItem.classList.remove("expanded")
+        otherItem.classList.remove("expanded");
       }
-    })
+    });
+    this.classList.toggle("expanded");
+  });
+});
 
-    // Toggle do item atual
-    this.classList.toggle("expanded")
-  })
-})
-
-// Click handlers para botões de ação
 document.querySelectorAll(".cta-button").forEach((button) => {
   button.addEventListener("click", () => {
-    // Implementar ação do botão (ex: abrir modal, redirecionar, etc)
-    console.log("CTA button clicked")
-    alert("Funcionalidade de contato será implementada aqui!")
-  })
-})
+    alert("Funcionalidade de contato será implementada aqui!");
+  });
+});
