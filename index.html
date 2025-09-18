@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weko Studio - Design e Estratégia</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Primeira seção com gradiente do header até processo -->
+    <div class="gradient-hero-to-process">
+        <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <div class="nav-brand">
+                    <span class="logo"> <img src="assets/img/logo.svg" alt="logo-wekostudio"></span>
+                    <span class="brand-name">Weko Studio</span>
+                </div>
+                <nav class="nav-menu">
+                    <a href="#sobre">SOBRE</a>
+                    <a href="#portfolio">PORTFÓLIO</a>
+                    <a href="#contato">CONTATO</a>
+                    <!-- Adicionando botão de mudança de idioma -->
+                    <div class="language-selector">
+                        <button class="language-btn" id="languageBtn">
+                            <span class="globe-icon"><img src="/assets/img/icon-idioma.svg" alt=""></span>
+                            <span class="dropdown-arrow"><img src="/assets/img/icon-seta.svg" alt=""></span>
+                        </button>
+                        <div class="language-dropdown" id="languageDropdown">
+                            <a href="#" data-lang="pt">Português</a>
+                            <a href="#" data-lang="en">English</a>
+                            <a href="#" data-lang="es">Español</a>
+                        </div>
+                    </div>
+                    <button class="menu-toggle">☰</button>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1 class="hero-title">
+                    CONSTRUÍMOS MARCAS
+                    FORTES E SÓLIDAS
+                    ATRAVÉS DE DESIGN
+                    E ESTRATÉGIA
+                </h1>
+                <button class="cta-button">Solicitar Proposta</button>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section class="portfolio" id="portfolio">
+            <div class="container">
+                <h2 class="section-title">Trabalhos</h2>
+                <div class="portfolio-grid">
+                    <div class="portfolio-item">
+                        <img src="assets/img/grid/grid-01.svg" alt="Weko Studio Project">
+                        <div class="portfolio-overlay">
+                            <span class="portfolio-label">Weko Studio</span>
+                            <button class="portfolio-arrow">↗</button>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <img src="assets/img/grid/grid-02.svg" alt="Weko Studio Project">
+                        <div class="portfolio-overlay">
+                            <span class="portfolio-label">Weko Studio</span>
+                            <button class="portfolio-arrow">↗</button>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <img src="assets/img/grid/grid-03.svg" alt="Weko Studio Project">
+                        <div class="portfolio-overlay">
+                            <span class="portfolio-label">Weko Studio</span>
+                            <button class="portfolio-arrow">↗</button>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <img src="assets/img/grid/grid-04.svg" alt="Weko Studio Project">
+                        <div class="portfolio-overlay">
+                            <span class="portfolio-label">Weko Studio</span>
+                            <button class="portfolio-arrow">↗</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+         <section class="process" id="processo">
+            <div class="container">
+                <h2 class="section-title">Processo</h2>
+                <div class="process-list">
+                    <!-- Adicionando estrutura expandível para cada item do processo -->
+                    <div class="process-item" data-process="1">
+                        <div class="process-header">
+                            <span class="process-number">01.</span>
+                            <span class="process-name">Diagnóstico</span>
+                            <button class="process-arrow">↗</button>
+                        </div>
+                        <div class="process-content">
+                            <p class="process-description">
+                                Fase inicial do projeto onde alinhamos todas as expectativas para construção da Identidade Visual. Nesta etapa, todos os desafios e objetivos do projeto são bem estabelecidos para buscar o melhor resultado possível para a marca.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="process-item" data-process="2">
+                        <div class="process-header">
+                            <span class="process-number">02.</span>
+                            <span class="process-name">Planejamento</span>
+                            <button class="process-arrow">↗</button>
+                        </div>
+                        <div class="process-content">
+                            <p class="process-description">
+                                Desenvolvimento da estratégia criativa e definição dos caminhos que serão seguidos durante todo o projeto. Criamos um roadmap detalhado com prazos e entregas específicas.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="process-item" data-process="3">
+                        <div class="process-header">
+                            <span class="process-number">03.</span>
+                            <span class="process-name">Conceito Visual</span>
+                            <button class="process-arrow">↗</button>
+                        </div>
+                        <div class="process-content">
+                            <p class="process-description">
+                                Criação dos primeiros esboços e direcionamentos visuais da marca. Exploramos diferentes possibilidades estéticas que melhor representem os valores e personalidade da empresa.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="process-item" data-process="4">
+                        <div class="process-header">
+                            <span class="process-number">04.</span>
+                            <span class="process-name">Símbolo</span>
+                            <button class="process-arrow">↗</button>
+                        </div>
+                        <div class="process-content">
+                            <p class="process-description">
+                                Desenvolvimento do elemento gráfico principal da marca. O símbolo é criado com foco na memorabilidade, versatilidade e aplicabilidade em diferentes contextos e suportes.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="process-item" data-process="5">
+                        <div class="process-header">
+                            <span class="process-number">05.</span>
+                            <span class="process-name">Identidade</span>
+                            <button class="process-arrow">↗</button>
+                        </div>
+                        <div class="process-content">
+                            <p class="process-description">
+                                Criação do sistema visual completo incluindo paleta de cores, tipografia, padrões gráficos e elementos de apoio que darão consistência à comunicação da marca.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="process-item" data-process="6">
+                        <div class="process-header">
+                            <span class="process-number">06.</span>
+                            <span class="process-name">Apresentação</span>
+                            <button class="process-arrow">↗</button>
+                        </div>
+                        <div class="process-content">
+                            <p class="process-description">
+                                Apresentação final do projeto com todas as aplicações da marca em diferentes contextos. Demonstramos como a identidade funcionará na prática através de mockups realistas.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="process-item" data-process="7">
+                        <div class="process-header">
+                            <span class="process-number">07.</span>
+                            <span class="process-name">Finalização</span>
+                            <button class="process-arrow">↗</button>
+                        </div>
+                        <div class="process-content">
+                            <p class="process-description">
+                                Entrega de todos os arquivos finais da marca em diferentes formatos e resoluções, além do manual de identidade visual com diretrizes de uso e aplicação.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Segunda seção com gradiente do processo até footer -->
+    <div class="gradient-process-to-footer">
+        <!-- Process Section -->
+       
+
+        <!-- Contact Section -->
+        <section class="contact" id="contato">
+            <div class="container">
+                <h2 class="contact-title">
+                    Pronto para transformar<br>
+                    sua marca?
+                </h2>
+                <p class="contact-description">
+                    Preencha o formulário e nos conte seus<br>
+                    objetivos. Vamos marcar uma conversa para<br>
+                    alinhar expectativas e dar início ao projeto.
+                </p>
+                <p class="contact-email">contato@wekostudio.com</p>
+                <button class="cta-button">Solicitar Proposta</button>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <span class="footer-brand">Weko Studio</span>
+                    <div class="footer-social">
+                        <a href="#" class="social-link">BEHANCE</a>
+                        <a href="#" class="social-link">INSTAGRAM</a>
+                        <a href="#" class="social-link">LINKEDIN</a>
+                    </div>
+                    <button class="scroll-top">↑</button>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="assets/script.js"></script>
+</body>
+</html>
